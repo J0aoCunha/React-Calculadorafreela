@@ -55,7 +55,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               type="text"
               name="days"
               id="days"
-              placeholder="4"
+              placeholder="Prestação de serviços"
             />
             <label>Qual os seus custos mensais relacionados ao trabalho?</label>
             <span>
@@ -65,7 +65,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <div className="indicator">
                 <span>R$/mês</span>
               </div>
-              <input type="text" name="week" id="week" placeholder="4" />
+              <input type="text" name="week" id="week" placeholder="500,00" />
             </div>
           </div>
         </form>
