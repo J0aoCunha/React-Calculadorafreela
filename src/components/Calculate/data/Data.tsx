@@ -1,3 +1,5 @@
+import './Data.css'
+
 interface dataProps {
   title: string
   descriptionSpan: string
@@ -12,12 +14,7 @@ function Data(props: dataProps) {
         <div className="indicator">
           <span>{props.descriptionSpan}</span>
         </div>
-        <input
-          type="text"
-          name="price"
-          id="price"
-          placeholder={props.placeholder}
-        />
+        <input type="text" placeholder={props.placeholder} />
       </div>
     </div>
   )
