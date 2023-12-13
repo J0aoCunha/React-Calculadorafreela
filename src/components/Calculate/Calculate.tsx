@@ -1,5 +1,6 @@
-import './Calculate.css'
 import Data from './Data/Data'
+
+import './Calculate.css'
 
 export function Calculate() {
   return (
