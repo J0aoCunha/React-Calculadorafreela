@@ -1,12 +1,19 @@
-import Data from './Data/Data'
+import { Data } from './Data/Data'
 
 import './Calculate.css'
+import { FormEvent } from 'react'
 
 export function Calculate() {
+  const NewCalc = (event: FormEvent) => {
+    event.preventDefault()
+
+    console.log('funcionou')
+  }
+
   return (
     <div>
       <div className="Data-area">
-        <form className="content-data">
+        <form className="content-data" onSubmit={NewCalc}>
           <Data
             placeholder="3000.00"
             title="Quanto você quer ganhar por mês (líquido)?"
@@ -35,9 +42,7 @@ export function Calculate() {
             descriptionSpan="R$/mês"
             placeholder="500.00"
           />
-          <button type="button" onSubmit={() => {}}>
-            CALCULAR
-          </button>
+          <button type="submit">CALCULAR</button>
         </form>
       </div>
     </div>

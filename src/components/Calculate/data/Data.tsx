@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './Data.css'
 
 interface dataProps {
@@ -6,7 +7,9 @@ interface dataProps {
   placeholder: string
 }
 
-function Data(props: dataProps) {
+export function Data(props: dataProps) {
+  const [newInput, setInput] = useState('')
+
   return (
     <div>
       <label>{props.title}</label>
@@ -14,10 +17,16 @@ function Data(props: dataProps) {
         <div className="indicator">
           <span>{props.descriptionSpan}</span>
         </div>
-        <input type="text" placeholder={props.placeholder} />
+        <input
+          type="text"
+          value={newInput}
+          placeholder={props.placeholder}
+          onChange={(event) => {
+            setInput(event.target.value)
+            console.log(event.target.value)
+          }}
+        />
       </div>
     </div>
   )
 }
-
-export default Data
