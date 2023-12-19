@@ -21,11 +21,12 @@ export type InputProjectType = {
   hourlyRate: number
   workHours: number
   workDays: number
-  discountProject: number
+  discountOrAddProject: number
 }
 export type ProjectsCost = {
   ProjectCost: string
   ProjectCostDiscount: string
+  ProjectCostAdd: string
 }
 
 export type SalaryDetailsType = {

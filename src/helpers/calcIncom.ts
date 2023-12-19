@@ -1,4 +1,4 @@
-import { FormDataType } from '../@types/types'
+import { FormDataType, InputProjectType } from '../@types/types'
 
 export const formCurrency = new Intl.NumberFormat('pt-BR', {
   style: 'currency',
@@ -34,4 +34,29 @@ export function calcInCome({
     monthlyGrossIncome,
   }
 }
-export function calcProject() {}
+
+export function calcProject({
+  discountOrAddProject,
+  hourlyRate,
+  workDays,
+  workHours,
+}: InputProjectType) {
+  // valor da hora de trabalho
+  const hourlyValue = hourlyRate
+  // horas trabalhadas por dia
+  const workedHoursPerDay = workHours
+  // dias trabalhados no projeto
+  const workedDays = workDays
+  // adicional de complexidade ou desconto
+  const complexityAdjustment = discountOrAddProject
+
+  const projectValue = hourlyValue * workedHoursPerDay * workedDays
+  const projectValueWithAdjustment = projectValue * (1 + complexityAdjustment)
+  const adjustment = projectValueWithAdjustment - projectValue
+
+  return {
+    projectValue,
+    projectValueWithAdjustment,
+    adjustment,
+  }
+}
