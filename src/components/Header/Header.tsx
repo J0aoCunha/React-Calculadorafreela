@@ -1,36 +1,28 @@
-import logoTrybe from '../../assets/logoTrybe.svg'
-import text from '../../assets/text.svg'
+import logo from '../../assets/logoTrybe.svg'
+import ppp from '../../assets/text.svg'
 
 import './Header.css'
 
-export function Header() {
+function Header() {
   return (
-    <header className="Header-container">
-      <div className="Logo-header">
-        <img className="Logo" src={logoTrybe} alt="Logo da Trybe" />
-      </div>
-      <div className="Content-header">
-        <div>
-          <img
-            className="Text"
-            src={text}
-            alt="Texto sobre primeiros passos."
-          />
-        </div>
-
-        <span></span>
-
-        <div className="Content-Texts">
-          <div className="Text-1">
-            <h3>Calculadora Freelancer</h3>
+    <header>
+      <div className="container">
+        <img src={logo} alt="" />
+        <div className="header__brand">
+          <div className="ppp-logo">
+            <img src={ppp} alt="" />
           </div>
-          <div className="text-2">
-            <span>
-              Aprenda como precificar o seu <br /> trabalho como freelancer!
-            </span>
+
+          <span />
+
+          <div className="header__desc">
+            <h1>Calculadora Freelancer</h1>
+            <p>Aprenda como precificar o seu trabalho como freelancer!</p>
           </div>
         </div>
       </div>
     </header>
   )
 }
+
+export default Header

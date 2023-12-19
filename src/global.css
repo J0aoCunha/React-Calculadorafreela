@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-*{
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- font-family: 'Inter', sans-serif;
- -webkit-font-smoothing: antialiased;
-}
-
-:root{
-  --neon-green:#1DB702;
-  --dark-green:  #00362C;
-  --lime:#A9E34B;
-  --lime-soft: #F4FCE3;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 
-.Container-Calculate{
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: space-evenly;
- }
+
+:root {
+  --gray: #f1f1f1;
+  --dark-gray: #6c747c;
+  --lime-1: #1db702;
+  --lime-2: #e1f2d5;
+  --lime-text: #f4fce3;
+  --green: #00362c;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}

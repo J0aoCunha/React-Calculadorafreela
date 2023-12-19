@@ -1,33 +1,20 @@
-.ConteinerSeparator{
- width: 100%;
- display:flex;
- flex-direction: column;
- align-items: center;
+.infobar {
+ background-color: var(--lime-1);
+ color: var(--lime-text);
+ padding: 16px 0;
+ text-align: center;
+ margin-bottom: 32px;
+ font-weight: 700;
  position: relative;
 }
 
-.Separator{
- width: 100%;
- height: 83px;
- display: flex;
- justify-content: center;
- background: var(--neon-green);
- align-items: center;
-
+.infobar:after {
+ content: '';
+ position: absolute;
+ border-width: 20px 20px 0;
+ border-style: solid;
+ border-color: var(--lime-1) transparent transparent;
+ bottom: -20px;
+ left: 50%;
+ margin-left: -20px;
 }
-
-
-.Separator h3{
- color: var(--lime-soft);
- text-align: center;
- font-size: 32px;
- font-style: normal;
- font-weight: 700;
- line-height:35px;
-}
-
-.triangulo {
- display: flex;
- margin-top: -13px;
-}
-
