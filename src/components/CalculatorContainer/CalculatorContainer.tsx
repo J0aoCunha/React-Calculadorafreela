@@ -1,5 +1,9 @@
 import { useState } from 'react'
-import { InputField } from '../../../src/@types/types'
+import {
+  FormDataType,
+  InputField,
+  SalaryDetailsType,
+} from '../../../src/@types/types'
 import FormSection from '../FormSection/FormSection'
 import ResultCard from '../Results/Results'
 
@@ -35,28 +39,35 @@ const inputFields: InputField[] = [
 ]
 
 function CalculatorContainer() {
-  const [formData, setFormData] = useState({})
-  // const [salaryDetails, setSalaryDetails] = useState({})
+  const [formData, setFormData] = useState({} as FormDataType)
+  const [salaryDetails, setSalaryDetails] = useState({} as SalaryDetailsType)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
     setFormData({ ...formData, [name]: value })
-    console.log(formData)
+  }
+
+  const handleSubmit = () => {
+    alert('entrou aq')
   }
 
   return (
     <div className="calculator__container">
       <div className="container">
-        <FormSection inputFields={inputFields} onChange={handleInputChange} />
+        <FormSection
+          inputFields={inputFields}
+          onChange={handleInputChange}
+          onSubmit={handleSubmit}
+        />
         <ResultCard>
           <p>O valor mínimo para sua hora de trabalho é:</p>
           <h2>
-            {formData?.workHoursPerDay}
+            {}
             <span>/hora</span>
           </h2>
           <p>O valor médio bruto que você precisa faturar é:</p>
           <h2>
-            00.00
+            {}
             <span>/mês</span>
           </h2>
         </ResultCard>
