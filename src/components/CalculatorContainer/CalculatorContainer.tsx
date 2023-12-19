@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import {
   FormDataType,
   InputField,
@@ -8,6 +8,7 @@ import FormSection from '../FormSection/FormSection'
 import ResultCard from '../Results/Results'
 
 import './CalculatorContainer.css'
+import { calcInCome, formCurrency } from '../../helpers/calcIncom'
 
 const inputFields: InputField[] = [
   {
@@ -47,8 +48,14 @@ function CalculatorContainer() {
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleSubmit = () => {
-    alert('entrou aq')
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault()
+
+    const formResult = calcInCome(formData)
+    setSalaryDetails({
+      hourlyRate: formCurrency.format(formResult.hourlyRate),
+      monthlyGrossIncome: formCurrency.format(formResult.monthlyGrossIncome),
+    })
   }
 
   return (
@@ -62,12 +69,12 @@ function CalculatorContainer() {
         <ResultCard>
           <p>O valor mínimo para sua hora de trabalho é:</p>
           <h2>
-            {}
+            {salaryDetails.hourlyRate}
             <span>/hora</span>
           </h2>
           <p>O valor médio bruto que você precisa faturar é:</p>
           <h2>
-            {}
+            {salaryDetails.monthlyGrossIncome}
             <span>/mês</span>
           </h2>
         </ResultCard>
