@@ -34,3 +34,4 @@ export function calcInCome({
     monthlyGrossIncome,
   }
 }
+export function calcProject() {}

@@ -14,6 +14,9 @@
 
 .calculator__container .container > :nth-child(1),
 .calculator__container .container > :nth-child(2) {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
  width: 100%;
  border-radius: 40px;
  padding: 32px;

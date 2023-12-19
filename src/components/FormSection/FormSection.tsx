@@ -7,7 +7,11 @@ type FormSectionProps = {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void
 }
 
-function FormSection({ inputFields, onChange, onSubmit }: FormSectionProps) {
+export function FormSection({
+  inputFields,
+  onChange,
+  onSubmit,
+}: FormSectionProps) {
   return (
     <form onSubmit={onSubmit}>
       {inputFields.map((inputField) => (
@@ -28,5 +32,3 @@ function FormSection({ inputFields, onChange, onSubmit }: FormSectionProps) {
     </form>
   )
 }
-
-export default FormSection

@@ -1,14 +1,15 @@
 import React, { FormEvent, useState } from 'react'
+
 import {
   FormDataType,
   InputField,
   SalaryDetailsType,
 } from '../../../src/@types/types'
-import FormSection from '../FormSection/FormSection'
+import { calcInCome, formCurrency } from '../../helpers/calcIncom'
+import { FormSection } from '../FormSection/FormSection'
 import ResultCard from '../Results/Results'
 
 import './CalculatorContainer.css'
-import { calcInCome, formCurrency } from '../../helpers/calcIncom'
 
 const inputFields: InputField[] = [
   {
