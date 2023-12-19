@@ -36,10 +36,10 @@ export function calcInCome({
 }
 
 export function calcProject({
-  discountOrAddProject,
   hourlyRate,
   workDays,
   workHours,
+  discountProject,
 }: InputProjectType) {
   // valor da hora de trabalho
   const hourlyValue = hourlyRate
@@ -47,16 +47,15 @@ export function calcProject({
   const workedHoursPerDay = workHours
   // dias trabalhados no projeto
   const workedDays = workDays
-  // adicional de complexidade ou desconto
-  const complexityAdjustment = discountOrAddProject
+  // descontos dado pelo Dev
+  const complexityAdjustment = discountProject
 
   const projectValue = hourlyValue * workedHoursPerDay * workedDays
-  const projectValueWithAdjustment = projectValue * (1 + complexityAdjustment)
-  const adjustment = projectValueWithAdjustment - projectValue
+  const projectValueWithAdjustment = projectValue - complexityAdjustment
 
   return {
     projectValue,
     projectValueWithAdjustment,
-    adjustment,
+    complexityAdjustment,
   }
 }

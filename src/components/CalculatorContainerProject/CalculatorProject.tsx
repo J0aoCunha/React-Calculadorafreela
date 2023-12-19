@@ -5,11 +5,11 @@ import type {
   ProjectsCost,
 } from '../../@types/types'
 import { calcProject, formCurrency } from '../../helpers/calcIncom'
+import { FormProject } from '../FormProject/FormProject'
 
 import ResultCard from '../Results/Results'
 
 import './CalculatorProject.css'
-import { FormProject } from '../FormProject/FormProject'
 
 const InputProjects: InputProject[] = [
   {
@@ -29,29 +29,30 @@ const InputProjects: InputProject[] = [
   },
   {
     id: 'discountProject',
-    label:
-      'Você vai dar um desconto? O quer inserir um adicional de complexidade?',
+    label: 'Você vai dar um desconto?',
     inputInfo: '%',
   },
 ]
 
 function CalculatorProject() {
-  const [formData, setFormData] = useState({} as InputProjectType)
-  const [salaryDetails, setSalaryDetails] = useState({} as ProjectsCost)
+  const [CalcData, setCalcData] = useState({} as InputProjectType)
+  const [projectDetails, setProjectDetails] = useState({} as ProjectsCost)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
-    setFormData({ ...formData, [name]: value })
-    console.log(formData)
+    setCalcData({ ...CalcData, [name]: Number(value) })
   }
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
 
-    const formResult = calcProject(formData)
-    setSalaryDetails({
-      hourlyRate: formCurrency.format(formResult.hourlyRate),
-      monthlyGrossIncome: formCurrency.format(formResult.monthlyGrossIncome),
+    const formProject = calcProject(CalcData)
+    setProjectDetails({
+      projectValue: formCurrency.format(formProject.projectValue),
+      projectValueWithAdjustment: formCurrency.format(
+        formProject.projectValueWithAdjustment,
+      ),
+      discount: formCurrency.format(formProject.complexityAdjustment),
     })
   }
 
@@ -66,19 +67,19 @@ function CalculatorProject() {
         <ResultCard>
           <p>O custo do projeto é:</p>
           <h2>
-            {salaryDetails.hourlyRate}
+            {projectDetails.projectValue}
             <span>/hora</span>
           </h2>
           <p>
             O custo do projeto com desconto ou com adicional de complexidade é:
           </p>
           <h2>
-            {salaryDetails.monthlyGrossIncome}
+            {projectDetails.projectValueWithAdjustment}
             <span>/mês</span>
           </h2>
 
           <p>O valor do adicional de complexidade ou desconto é:</p>
-          <h2 className="discount"> -R$ 100,00</h2>
+          <h2 className="discount"> - {projectDetails.discount}</h2>
         </ResultCard>
       </div>
     </div>
