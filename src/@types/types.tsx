@@ -3,6 +3,11 @@ export type InputField = {
   label: string
   inputInfo: string
 }
+export type InputProject = {
+  id: string
+  label: string
+  inputInfo: string
+}
 
 export type FormDataType = {
   monthlyNetSalary: number
@@ -10,6 +15,17 @@ export type FormDataType = {
   workDaysPerWeek: number
   vacationWeeksPerYear: number
   monthlyExpenses: number
+}
+
+export type InputProjectType = {
+  hourlyRate: number
+  workHours: number
+  workDays: number
+  discountProject: number
+}
+export type ProjectsCost = {
+  ProjectCost: string
+  ProjectCostDiscount: string
 }
 
 export type SalaryDetailsType = {
