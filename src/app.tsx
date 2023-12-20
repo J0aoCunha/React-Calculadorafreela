@@ -1,5 +1,6 @@
 import CalculatorContainer from './components/CalculatorContainer/CalculatorContainer'
 import CalculatorProject from './components/CalculatorContainerProject/CalculatorProject'
+import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import { Separator } from './components/separator/Separator'
 
@@ -11,7 +12,7 @@ export function App() {
       <CalculatorContainer />
       <Separator content="Calcule o valor a ser cobrado para um projeto:" />
       <CalculatorProject />
-      <Separator content="Calcule o valor a ser cobrado para um projeto:" />
+      <Footer />
     </>
   )
 }
